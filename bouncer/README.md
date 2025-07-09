@@ -12,7 +12,7 @@ target_url = "https://newsweek.com"
 # User Agent for OPSEC
 User-Agent = "Mozilla/5.0 (X11; Linux x86_64; rv:138.0) Gecko/20100101 Firefox/138.0"
 # Example of a header for bouncing
-"X-Forwarded-For" = "{{PAYLOAD}}.3x1t0ww9j0gh3npdfsq1kffh78d71xpm.oastify.com"
+"X-Forwarded-For" = "{{PAYLOAD}}.interactshdomain.com"
 ```
 
 After this just run the `make` command to build the program or run `make debug` to have logging enabled.
