@@ -1,5 +1,5 @@
-# bounce-rs
-Simple implentation of data bouncing in rust
+# bounce
+Simple implentation of a data bouncing scanner and exfiltrator 
 
 ## What it is
 Databouncing provides to the attacker the possability of DNS exfiltration even if the DNS provider is controlled by the victim. Through custom request headers the attacker can trigger a dns resolution on the side of the GET request target, this can make defenders missinterpret the request or even ignore it. Deeper research is present at this [url](https://databouncing.io/).
