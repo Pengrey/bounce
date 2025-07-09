@@ -4,7 +4,13 @@ use std::env;
 use std::fs;
 use std::path::Path;
 
-// Updated struct to match the new config.toml format
+#[macro_export]
+macro_rules! info {
+    ($content:expr) => {
+        println!("cargo::warning=\r[{}] {}", "\x1b[34m>\x1b[0m", $content);
+    };
+}
+
 #[derive(Deserialize)]
 struct Config {
     target_url: String,
@@ -26,9 +32,12 @@ fn main() {
         config.target_url
     ));
 
+    info!(format!("Using exfil url: {}", config.target_url));
+
     // Generate the headers array
     generated_code.push_str("\npub const HEADERS: &'static [(&'static str, &'static str)] = &[\n");
     for (key, value) in config.headers {
+        info!(format!("Using request header: '{}: {}'", key.escape_default(), value.escape_default()));
         generated_code.push_str(&format!(
             "    (\"{}\", \"{}\"),\n",
                                          key.escape_default(),
